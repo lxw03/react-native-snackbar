@@ -107,6 +107,7 @@ static const NSTimeInterval ANIMATION_DURATION = 0.250;
 -(void)setActionTitle:(NSString *)actionTitle {
     [actionButton setTitle:actionTitle forState:UIControlStateNormal];
 }
+
 -(void)setActionTitleColor:(UIColor *)actionTitleColor {
     [actionButton setTitleColor:actionTitleColor forState:UIControlStateNormal];
 }
@@ -175,6 +176,7 @@ static const NSTimeInterval ANIMATION_DURATION = 0.250;
     }
     if (!_pendingOptions) { return; }
 
+    self.backgroundColor = _pendingOptions[@"backgroundColor"] ? [RCTConvert UIColor:_pendingOptions[@"backgroundColor"]] : [UIColor colorWithRed:0.196078F green:0.196078F blue:0.196078F alpha:1.0F];
     self.title = _pendingOptions[@"title"];
     self.callback = _pendingCallback;
     NSDictionary* action = _pendingOptions[@"action"];
